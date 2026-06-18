@@ -50,7 +50,7 @@ export default function Portfolio() {
     },
     {
       icon: Database,
-      role: "Data Project — SafeWork NSW",
+      role: "Data Project | SafeWork NSW",
       org: "Government Research Collaboration",
       period: "2024",
       points: [
@@ -61,7 +61,7 @@ export default function Portfolio() {
     },
     {
       icon: MessageSquare,
-      role: "Industry Project — ACCC",
+      role: "Industry Project | ACCC",
       org: "Stakeholder Research & Communication",
       period: "2023",
       points: [
@@ -73,7 +73,6 @@ export default function Portfolio() {
   ];
 
   const futureProjects = [
-    { title: "Financial Market Pipeline", desc: "API ingestion, ETL, FastAPI endpoint with rate limiting, dashboard, deployed on Azure." },
     { title: "Australian Market Case Study", desc: "Public ACCC / ABS data analysed and written up as a consulting deliverable." },
     { title: "Fraud Detection with Risk Framing", desc: "Predictive model framed around business cost of errors and decision thresholds." },
     { title: "Log-Based Intrusion Detection", desc: "Anomaly detection on UNSW-NB15 with attack pattern visualisation." },
@@ -175,7 +174,7 @@ export default function Portfolio() {
         {/* PROJECTS */}
         {page === "projects" && (
           <section className="py-16">
-            <h2 className="text-sm font-semibold text-cyan-400 uppercase tracking-wide mb-8">Featured Project</h2>
+            <h2 className="text-sm font-semibold text-cyan-400 uppercase tracking-wide mb-8">Featured Projects</h2>
 
             <div className="bg-slate-900/60 border border-slate-800 rounded-2xl overflow-hidden">
               <div className="p-8">
@@ -229,6 +228,56 @@ export default function Portfolio() {
 
                 <div className="flex flex-wrap gap-2">
                   {["PyTorch", "EfficientNet", "ResNet50", "U-Net", "Grad-CAM", "FastAPI", "AWS SageMaker", "React"].map((tag) => (
+                    <span key={tag} className="text-xs px-3 py-1 bg-slate-800 text-slate-300 rounded-full">{tag}</span>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Financial Market Pipeline */}
+            <div className="bg-slate-900/60 border border-slate-800 rounded-2xl overflow-hidden mt-6">
+              <div className="p-8">
+                <div className="flex items-start justify-between flex-wrap gap-4 mb-6">
+                  <div className="flex items-center gap-3">
+                    <div className="p-2.5 bg-cyan-500/10 rounded-xl">
+                      <Activity className="text-cyan-400" size={22} />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-semibold">Financial Market Pipeline</h3>
+                      <p className="text-slate-500 text-sm">Full-stack data pipeline and dashboard</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-4">
+                    <a href="https://financial-market-pipeline.vercel.app" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-sm text-cyan-400 hover:text-cyan-300 transition">
+                      Live demo <ExternalLink size={12} />
+                    </a>
+                    <a href="https://github.com/PiyaJolly/financial-market-pipeline" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-sm text-slate-400 hover:text-white transition">
+                      <Github size={16} /> View Code <ExternalLink size={12} />
+                    </a>
+                  </div>
+                </div>
+
+                <p className="text-slate-300 leading-relaxed mb-6">
+                  A full-stack service that ingests daily equities data, transforms it, caches it, and serves it through a rate-limited REST API to a React dashboard. The FastAPI backend separates the data, caching, and web layers, with input validation, graceful error handling, and a pytest suite. The dashboard charts price history and surfaces live versus cached responses in the interface.
+                </p>
+
+                <div className="grid sm:grid-cols-3 gap-4 mb-6">
+                  <div className="flex items-start gap-2.5">
+                    <Code2 className="text-slate-500 mt-0.5 shrink-0" size={16} />
+                    <p className="text-sm text-slate-400">FastAPI backend with TTL caching, rate limiting, and a mocked pytest suite</p>
+                  </div>
+                  <div className="flex items-start gap-2.5">
+                    <Layers className="text-slate-500 mt-0.5 shrink-0" size={16} />
+                    <p className="text-sm text-slate-400">Layered architecture keeping data, cache, and API concerns separate</p>
+                  </div>
+                  <div className="flex items-start gap-2.5">
+                    <Database className="text-slate-500 mt-0.5 shrink-0" size={16} />
+                    <p className="text-sm text-slate-400">Deployed end to end: backend on Render, dashboard on Vercel</p>
+                  </div>
+                </div>
+
+                <div className="flex flex-wrap gap-2">
+                  {["Python", "FastAPI", "Docker", "pytest", "React", "Vite", "Recharts", "Render", "Vercel"].map((tag) => (
                     <span key={tag} className="text-xs px-3 py-1 bg-slate-800 text-slate-300 rounded-full">{tag}</span>
                   ))}
                 </div>
